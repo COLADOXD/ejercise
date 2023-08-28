@@ -1,0 +1,14 @@
+{
+  "name": "exercise",
+  "version": "1.0.0",
+  "description": "Exercise for ioet",
+  "main": "Exercise.js",
+  "scripts": {
+    "test": "ts-node main.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-node": "^10.9.1"
+  }
+}
