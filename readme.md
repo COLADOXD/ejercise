@@ -10,6 +10,12 @@ npm install
 npm run test
 ```
 
+# Project Test
+
+```
+npm run test
+```
+
 # Explanation
 
 First declare the variable which is going to have the employees and these are going to have the array of strings which are their schedules.
