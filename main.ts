@@ -1,4 +1,4 @@
-const employees = {
+export const employees = {
   RENE: [
     "MO10:00-12:00",
     "TU10:00-12:00",
@@ -23,16 +23,32 @@ const checkTime = (employee: string, partner: string): boolean => {
     partnerTimeParts[1].split(":")[0],
     10
   );
+  const startMinute: number = parseInt(timeParts[0].split(":")[1], 10);
+  const endMinute: number = parseInt(timeParts[1].split(":")[1], 10);
+  const startPartnerMinute: number = parseInt(
+    partnerTimeParts[0].split(":")[1],
+    10
+  );
+  const endPartnerMinute: number = parseInt(
+    partnerTimeParts[1].split(":")[1],
+    10
+  );
   if (startHour <= startPartnerHour && startPartnerHour <= endHour) {
     return true;
   } else if (startPartnerHour <= endHour && endPartnerHour >= endHour) {
+    return true;
+  } else if (
+    startHour === startPartnerHour &&
+    startMinute >= startPartnerMinute &&
+    endMinute >= startPartnerMinute
+  ) {
     return true;
   } else {
     return false;
   }
 };
 
-const countAgreedSchedules = (
+export const countAgreedSchedules = (
   employee: string[],
   partner: string[]
 ): number => {
@@ -48,11 +64,3 @@ const countAgreedSchedules = (
   }
   return count;
 };
-
-console.log(
-  `
-  ASTRID-RENE: ${countAgreedSchedules(employees.ASTRID, employees.RENE)}
-  ASTRID-ANDRES: ${countAgreedSchedules(employees.ASTRID, employees.ANDRES)}
-  RENE-ANDRES:${countAgreedSchedules(employees.RENE, employees.ANDRES)}
-  `
-);
