@@ -7,7 +7,7 @@ npm install
 # Project development
 
 ```
-npm run test
+npm run dev
 ```
 
 # Project Test
